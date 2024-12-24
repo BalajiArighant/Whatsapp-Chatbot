@@ -1,0 +1,12 @@
+{
+	"messaging_product": "whatsapp",
+	"context": {
+		"message_id": "MESSAGE_ID"
+	},
+	"to": "PHONE_NUMBER",
+	"type": "text",
+	"text": {
+		"preview_url": false,
+		"body": "your-text-message-content"
+	}
+}

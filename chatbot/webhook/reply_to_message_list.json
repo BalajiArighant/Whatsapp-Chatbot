@@ -1,0 +1,32 @@
+{
+	"messaging_product": "whatsapp",
+	"recipient_type": "individual",
+	"to": "PHONE_NUMBER",
+	"type": "interactive",
+	"interactive": {
+		"type": "list",
+		"body": {
+			"text": "BODY_TEXT"
+		},
+		"action": {
+			"button": "BUTTON_TEXT",
+			"sections": [
+				{
+					"title": "SECTION_1_TITLE",
+					"rows": [
+						{
+							"id": "SECTION_1_ROW_1_ID",
+							"title": "SECTION_1_ROW_1_TITLE",
+							"description": "SECTION_1_ROW_1_DESCRIPTION"
+						},
+						{
+							"id": "SECTION_1_ROW_2_ID",
+							"title": "SECTION_1_ROW_2_TITLE",
+							"description": "SECTION_1_ROW_2_DESCRIPTION"
+						}
+					]
+				}
+			]
+		}
+	}
+}
