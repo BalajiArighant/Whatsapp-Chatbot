@@ -22,5 +22,5 @@ from .views import HelloWorld
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("webhooks/", include("webhook.urls")),
-	path("/", view=HelloWorld.as_view())
+	path("", view=HelloWorld.as_view())
 ]
