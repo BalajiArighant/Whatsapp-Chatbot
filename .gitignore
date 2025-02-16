@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.py[cod]
+*$PYTHONLEGACYWINDOWSSTDIO$
+
+# Virtual environment
+venv/
+env/
+*.egg-info/
+
+# Django stuff
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
+SECRET_KEY.txt
+
+# Migrations (if you want to exclude them)
+**/migrations/*.py
+**/migrations/*.pyc
+!**/migrations/__init__.py
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Cache & temp files
+cache/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+.env

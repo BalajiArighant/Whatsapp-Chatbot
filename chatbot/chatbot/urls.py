@@ -17,8 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from .views import HelloWorld
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("webhooks/", include("webhook.urls")),
+	path("/", view=HelloWorld.as_view())
 ]
