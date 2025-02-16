@@ -3,6 +3,9 @@ from rest_framework.views import APIView
 import psycopg2
 from dotenv import load_dotenv, find_dotenv
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 class HelloWorld(APIView):
 	def get(self, request):
@@ -40,4 +43,5 @@ class HelloWorld(APIView):
 
 		except Exception as e:
 			print(f"Failed to connect: {e}")
+			logger.error(f"Failed to connect: {e}")
 			return Response({"message": "Failed to connect to the database."})
