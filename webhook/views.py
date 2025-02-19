@@ -6,9 +6,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import RequestSerializer
 from .models import User
+import logging
 
 # Create your views here.
-
+logger = logging.getLogger(__name__)
 class Webhook(APIView):
     DOMAIN = "graph.facebook.com"
     VERSION = "v21.0"
@@ -24,8 +25,10 @@ class Webhook(APIView):
         challenge = request.query_params.get("hub.challenge")
 
         if mode == "subscribe" and token == os.getenv("VERIFY_TOKEN"):
+            logger.info(f"Webhook verified by {request.META.get('REMOTE_ADDR')}")
             return Response(challenge)
         else:
+            logger.error(f"Invalid token from {request.META.get('REMOTE_ADDR')}")
             raise PermissionDenied("Invalid token")
 
     def post(self, request, *args, **kwargs):

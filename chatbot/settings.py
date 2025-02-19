@@ -78,7 +78,6 @@ WSGI_APPLICATION = "chatbot.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-print("PORT: ", os.getenv("DB_PORT"))
 
 DATABASES = {
     "default": dj_database_url.config(
