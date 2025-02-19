@@ -26,7 +26,7 @@ class Webhook(APIView):
 
         if mode == "subscribe" and token == os.getenv("VERIFY_TOKEN"):
             logger.info(f"Webhook verified by {request.META.get('REMOTE_ADDR')} with query params {request.query_params}")
-            return Response(challenge)
+            return Response(int(challenge))
         else:
             logger.error(f"Invalid token from {request.META.get('REMOTE_ADDR')} with query params {request.query_params}")
             raise PermissionDenied("Invalid token")
