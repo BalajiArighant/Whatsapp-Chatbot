@@ -1,7 +1,7 @@
 import json
 import os
 import requests
-from django.shortcuts import render
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import RequestSerializer
@@ -19,7 +19,14 @@ class Webhook(APIView):
     URL = f"https://{DOMAIN}/{VERSION}/{FROM_PHONE}/{ENDPOINT}"
 
     def get(self, request, *args, **kwargs):
-        return Response({"status": "webhook working fine"})
+        mode = request.query_params.get("hub.mode")
+        token = request.query_params.get("hub.verify_token")
+        challenge = request.query_params.get("hub.challenge")
+
+        if mode == "subscribe" and token == os.getenv("VERIFY_TOKEN"):
+            return Response(challenge)
+        else:
+            raise PermissionDenied("Invalid token")
 
     def post(self, request, *args, **kwargs):
         kovil = [
